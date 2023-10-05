@@ -11,9 +11,9 @@ maxOf2 x y
 
 -- | Returns the largest of three Ints
 maxOf3 :: Int -> Int -> Int -> Int
-maxOf3 x y z = if (maxOf2 x y > maxOf2 y z) && (maxOf2 x y > maxOf2 x z)
+maxOf3 x y z = if (maxOf2 x y >= maxOf2 y z) && (maxOf2 x y >= maxOf2 x z)
         then maxOf2 x y
-        else if (maxOf2 y z > maxOf2 x y) && (maxOf2 y z > maxOf2 x z)
+        else if (maxOf2 y z >= maxOf2 x y) && (maxOf2 y z >= maxOf2 x z)
                 then maxOf2 y z
                 else maxOf2 x z
 
@@ -52,16 +52,18 @@ toUpper character
 
 -- | Arithmetic sequence
 arithmeticSeq :: Double -> Double -> Int -> Double
-arithmeticSeq = undefined
+arithmeticSeq a d n = a + fromIntegral n * d
 
 -- | Geometric sequence
 geometricSeq :: Double -> Double -> Int -> Double
-geometricSeq = undefined
+geometricSeq a r n = a * r^n
 
 -- | Arithmetic series
 arithmeticSeries :: Double -> Double -> Int -> Double
-arithmeticSeries = undefined
+arithmeticSeries a d n = fromIntegral (n + 1) * (a + 0.5 * d * fromIntegral n)
 
 -- | Geometric series
 geometricSeries :: Double -> Double -> Int -> Double
-geometricSeries = undefined
+geometricSeries a r n
+        | r == 1 = a * (1 + fromIntegral n)
+        | otherwise = a * ((1 - r ^ (n + 1)) / (1 - r))
