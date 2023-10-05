@@ -11,23 +11,43 @@ maxOf2Tests = [ maxOf2 1 2 --> 2
 
 maxOf3Tests = [ maxOf3 1 2 3 --> 3
               , maxOf3 2 1 3 --> 3
+              , maxOf3 1 3 2 --> 3
+              , maxOf3 2 3 1 --> 3
+              , maxOf3 3 2 1 --> 3
+              , maxOf3 3 1 2 --> 3
               , maxOf3 3 3 3 --> 3
               ]
 
 isADigitTests = [ isADigit '1' --> True
+                , isADigit '9' --> True
+                , isADigit '5' --> True
                 , isADigit 'A' --> False
+                , isADigit 'Z' --> False
+                , isADigit 'M' --> False
                 ]
 
 isAlphaTests = [ isAlpha '1' --> False
-               , isAlpha 'A' --> True
+                , isAlpha '9' --> False
+                , isAlpha '5' --> False
+                , isAlpha 'A' --> True
+                , isAlpha 'Z' --> True
+                , isAlpha 'M' --> True
+                , isAlpha 'a' --> True
+                , isAlpha 'z' --> True
+                , isAlpha 'm' --> True
                ]
 
 digitToIntTests = [ digitToInt '0' --> 0
                   , digitToInt '9' --> 9
+                  , digitToInt '5' --> 5
                   ]
 
 toUpperTests = [ toUpper 'a' --> 'A'
+               , toUpper 'z' --> 'Z'
+               , toUpper 'm' --> 'M'
                , toUpper 'A' --> 'A'
+               , toUpper 'Z' --> 'Z'
+               , toUpper 'M' --> 'M'
                ]
 
 --
